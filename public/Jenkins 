@@ -4,11 +4,11 @@ pipeline {
        nodejs "node"
     }
   stages {
-       stage('Build'){
+       stage('clone repository and software installation'){
        steps{
            git 'https://github.com/anishadaniels/gallery.git'
-           sh'npm install'
-
+            sh 'npm install'
     }  }
 
     }    }
+ 
