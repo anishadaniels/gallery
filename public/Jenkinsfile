@@ -2,16 +2,31 @@ pipeline{
     agent any
     tools{nodejs 'node'}
     stages{
-        stage('Build')
+        stage('software installations and git cloning'){
         steps{ git 'https://github.com/anishadaniels/gallery.git'
         sh 'npm install'
         sh 'npm install --save express'
         sh 'npm install -- global yarn'
          
         }
-        stage('Success'){
-            echo ' tool install and cloning plus build successful'
+        }
+       
+    
+       
+        stage('Build'){
+            steps{
+                echo'build succesful'
+            }
         }
     }
-    }
+        
+      //  stage('Deploy to render'){
+        //    steps{
+          //      echo 'Deploying to render'
+            //    httpRequest httpMode: 'POST', responseHandle: 'NONE', url: , wrapAsMultipart: false
+              //  echo 'Deploy to render was a success'
+
+          //  }
+       // }
 }
+
