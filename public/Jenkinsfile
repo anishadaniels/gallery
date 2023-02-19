@@ -5,6 +5,9 @@ pipeline{
         stage('Build')
         steps{ git 'https://github.com/anishadaniels/gallery.git'
         sh 'npm install'
+        sh 'npm install --save express'
+        sh 'npm install -- global yarn'
+         
         }
         stage('Success'){
             echo ' tool install and cloning plus build successful'
