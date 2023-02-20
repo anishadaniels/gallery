@@ -10,7 +10,7 @@ let index = require('./routes/index');
 let image = require('./routes/image');
 
 // // connecting the database
-console.log(process.env.MONGODB_URI)
+
 async function connectdb() {
     await mongoose
       .connect(process.env.MONGODB_URI, {
@@ -44,7 +44,7 @@ app.use('/', index);
 app.use('/image', image);
 
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
