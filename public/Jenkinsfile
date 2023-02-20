@@ -12,21 +12,14 @@ pipeline{
         }
        
     
-       
         stage('Build'){
             steps{
                 echo'build succesful'
             }
         }
+        stage('Tests'){
+            steps {
+                sh 'npm test'}
+        }
     }
-        
-        //stage('Deploy to render'){
-          //  steps{
-            //   echo 'Deploying to render'
-              //httpRequest httpMode: 'POST', responseHandle: 'NONE', url: , wrapAsMultipart: false
-                //echo 'Deploy to render was a success'
-
-           // }
-       // }
 }
-
