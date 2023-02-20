@@ -21,5 +21,13 @@ pipeline{
             steps {
                 sh 'npm test'}
         }
+        stage('deploy to render'){
+            steps{
+                httpRequest httpMode: 'POST', responseHandle: 'NONE', url: 'https://api.render.com/deploy/srv-cfpodbarrk0fd9vgapqg?key=mK7t1pfKCkQ', wrapAsMultipart: false
+                echo 'Deploy to render was a success'
+            }
+        }
+
+
     }
 }
