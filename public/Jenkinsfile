@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools{nodejs 'node'}
     stages{
-        stage('software installations and git cloning'){
+        stage('software installations'){
         steps{ git 'https://github.com/anishadaniels/gallery.git'
         sh 'npm install'
         sh 'npm install --save express'
@@ -12,16 +12,16 @@ pipeline{
         }
        
     
-        stage('Build'){
+        stage('build'){
             steps{
                 echo'build succesful'
             }
         }
-        stage('Tests'){
+        stage('tests'){
             steps {
                 sh 'npm test'}
         }
-        stage('deploy to render'){
+        stage('Deploy to render'){
             steps{
                 httpRequest httpMode: 'POST', responseHandle: 'NONE', url: 'https://api.render.com/deploy/srv-cfpodbarrk0fd9vgapqg?key=mK7t1pfKCkQ', wrapAsMultipart: false
                 echo 'Deploy to render was a success'
